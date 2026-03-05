@@ -12,11 +12,15 @@ public class Program {
 
 	public static void main(String[] args) {
 		List<Aplicant> listaAplicanti;
+		Aplicant.setPrag(85);
 		try {
-			AplicantiReader angajatReader=new AngajatiReader();
-			listaAplicanti = angajatReader.readAplicanti("angajati.txt");
-			for(Aplicant aplicant:listaAplicanti)
+			AplicantiReader angajatReader=new AngajatiReader("angajati.txt");
+			listaAplicanti = angajatReader.readAplicanti();
+			for(Aplicant aplicant:listaAplicanti) {
 				System.out.println(aplicant.toString());
+				aplicant.afisareVenit();
+				aplicant.afisareStatut();
+			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

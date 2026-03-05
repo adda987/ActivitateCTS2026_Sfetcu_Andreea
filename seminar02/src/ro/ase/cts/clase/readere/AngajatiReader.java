@@ -11,21 +11,23 @@ import java.util.Scanner;
 
 public class AngajatiReader extends AplicantiReader {
 
-    public List<Aplicant> readAplicanti(String file) throws FileNotFoundException {
-        Scanner input2 = new Scanner(new File(file));
-        input2.useDelimiter(",");
+    public AngajatiReader(String numeFisier){ super(numeFisier);}
+
+    public List<Aplicant> readAplicanti() throws FileNotFoundException {
+        Scanner input = new Scanner(new File(super.numeFisier));
+        input.useDelimiter(",");
         List<Aplicant> angajati = new ArrayList<Aplicant>();
 
-        while (input2.hasNext()) {
+        while (input.hasNext()) {
             Angajat a=new Angajat();
-            super.citesteAplicant(input2,a);
-            int salariu = input2.nextInt();
+            super.citesteAplicant(input,a);
+            int salariu = input.nextInt();
             a.setSalariu(salariu);
-            String ocupatie = input2.next();
+            String ocupatie = input.next();
             a.setOcupatie(ocupatie);
             angajati.add(a);
         }
-        input2.close();
+        input.close();
         return angajati;
     }
 }
