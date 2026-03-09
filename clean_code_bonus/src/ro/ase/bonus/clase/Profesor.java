@@ -15,10 +15,6 @@ public class Profesor extends Persoana implements IPredabil {
         return idAngajat;
     }
 
-    public void setIdAngajat(String idAngajat) {
-        this.idAngajat = idAngajat;
-    }
-
     @Override
     public void preda(){
         System.out.println("Profesorul preda.");

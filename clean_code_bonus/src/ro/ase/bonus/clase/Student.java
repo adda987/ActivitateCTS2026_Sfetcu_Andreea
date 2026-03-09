@@ -7,9 +7,6 @@ public class Student extends Persoana{
         return idStudent;
     }
 
-    public void setIdStudent(String idStudent) {
-        this.idStudent = idStudent;
-    }
 
     public Student(String nume, int varsta, String idStudent) {
         super(nume, varsta);
